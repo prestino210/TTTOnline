@@ -9,8 +9,8 @@ const io = new Server(server);
 const port = 3000;
 const crypto = require('crypto');
 
-const GSM = require("GameSessionManager");
-
+const {GameSessionManager, Game} = require("./GameSessionManager");
+const GSM = new GameSessionManager(Game);
 let currentGameIDs = [];
 
 app.use('/game', express.static(__dirname + '/public'));

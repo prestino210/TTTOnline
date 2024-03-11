@@ -1,10 +1,11 @@
-class GameSessionManager {
-
-    constructor() {
+exports.GameSessionManager = class {
+    constructor(Game) {
         this.currentGames = [];
+        this.Game = Game
     }
 
     addGame(gameID) {
+        const Game = this.Game;
         this.currentGames.push(new Game(gameID));
     }
 
@@ -20,7 +21,7 @@ class GameSessionManager {
     }
 }
 
-class Game {
+exports.Game = class {
     constructor(gameID) {
         this.gameID = gameID;
         this.cells = ["", "", "", "", "", "", "", "", ""];
@@ -77,4 +78,3 @@ class Game {
     }
 }
 
-module.exports = { GameSessionManager }
