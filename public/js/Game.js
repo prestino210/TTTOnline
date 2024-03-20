@@ -6,7 +6,6 @@ export default class Game {
         this.screenWidth = WIDTH;
         this.screenHeight = HEIGHT;
         this.gameID = gameID;
-        this.players = 0;
         this.gameStarted = false;
         this.socket = null;
         this.canJoin = true;
@@ -41,7 +40,25 @@ export default class Game {
 
     }
 
+    getCells() {
+        let cells = [];
+        for(let i = 0; i < this.cells.length; i++) {
+            cells.push(this.cells[i].piece);
+        }
+
+        return cells;
+    }
+
+    setCells(cells) {
+        for(let i = 0; i < this.cells.length; i++) {
+            this.cells[i].piece = cells[i];
+        }
+
+    }
+
     update() {
+       
+
         if(this.playersRestarting == 2) {
             this.cells.forEach(c => {
                 c.piece = "";
@@ -83,7 +100,11 @@ export default class Game {
         }
     }
 
-    draw(ctx) {
+    draw(ctx, canv) {
+        this.screenWidth = canv.width = (window.innerWidth * 0.75);
+        this.screenHeight = canv.height = window.outerHeight;
+        ctx.fillStyle = "rgb(50,50,50)"
+        ctx.fillRect(0, 0, this.screenWidth, this.screenHeight);
 
         this.cells.forEach(c => {
             c.draw(ctx);
@@ -121,20 +142,20 @@ export default class Game {
             ctx.strokeText(txt, (this.screenWidth/2) - (tWidth/2), 
             (this.screenHeight/2) + (tHeight/2));
 
-            if(!this.isMobile) {
-                let txt = "Click to restart " + this.playersRestarting + "/2";
+            //if(!this.isMobile) {
+                txt = "Click to restart " + this.playersRestarting + "/2"; //let
                 ctx.fillStyle = "rgb(255,255,255)"
                 ctx.font = "Bold 20px arial"
                 ctx.lineWidth = 1;
-                let text = ctx.measureText(txt);
-                let tWidth = text.width;
-                let tHeight = text.actualBoundingBoxAscent + text.actualBoundingBoxDescent;
+                text = ctx.measureText(txt); //let
+                tWidth = text.width; //let
+                tHeight = text.actualBoundingBoxAscent + text.actualBoundingBoxDescent; //let
                 ctx.fillText(txt, (this.screenWidth/2) - (tWidth/2), 
                 ((this.screenHeight/2) + (tHeight/2)) + 45);
                 ctx.strokeText(txt, (this.screenWidth/2) - (tWidth/2), 
                 ((this.screenHeight/2) + (tHeight/2)) + 45);
                 ctx.lineWidth = 1;
-            }
+            //}
         }
 
         if(!this.canJoin) {

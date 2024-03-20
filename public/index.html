@@ -8,9 +8,24 @@
     <link rel="icon" href="/game/assets/favicon.png" type="image/png" sizes="16x16">
 </head>
 <body>
-    <canvas></canvas>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/game/js/app.js" type="module"></script>
+    <div id="container">
+        <canvas></canvas>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/game/js/app.js" type="module"></script>
+
+        
+        <div id="chat-container">
+            <div id="message-container"></div>
+            
+                <div id="input-container">
+                    <form action="" id="message-form">
+                        <input id="input-text" type="text">
+                        <input id="send-button" type="button" value="Send">
+                    </form>
+                </div>
+        </div>
+    </div>
+    
 
 </body>
 </html>

@@ -1,4 +1,55 @@
 body {
     margin: 0% auto;
-    overflow: hidden;
+    overflow: auto;
+    background-color: rgb(83, 102, 161);
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#container {
+    display: flex;
+
+}
+
+#chat-container {
+    background-color: rgb(83, 102, 161);
+    flex-grow: 1;
+}
+
+#message-container {
+    margin: 10px;
+}
+
+#input-container {
+    background-color: rgb(122, 122, 211);
+    border-radius: 25px;
+    padding-left: 5%;
+}
+
+#chat-message {
+    padding-bottom: 0%;
+    padding-top: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 95%;
+    background-color: rgba(0, 0, 0, .09);
+    border-radius: 25px;
+}
+
+#send-button {
+    background-color: rgb(109, 156, 168);
+    width: 27w;
+}
+
+#input-container {
+    background-color: rgba(109, 156, 168,0.5);
+}
+
+#input-text {
+    background-color: rgb(109, 156, 168);
+    width: 18vw;
 }

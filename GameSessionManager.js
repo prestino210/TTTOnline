@@ -30,6 +30,7 @@ class Game {
         this.playerOID = null;
         this.turn = 0;
         this.started = false;
+        this.chat = [];
     }
 
     getCells() {
@@ -75,6 +76,14 @@ class Game {
     setTurn(turn) {
         this.turn = turn;
     }
+
+    addMessage(m) {
+        this.chat.push(m);
+    }
+
+    getChat() {
+        return this.chat;
+    }
 }
 
-module.exports = { GameSessionManager }
+module.exports = GameSessionManager

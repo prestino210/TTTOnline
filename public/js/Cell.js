@@ -19,9 +19,8 @@ export default class Cell {
 
             if(mX > this.x && mX < this.x + this.width && mY > this.y && mY < this.y + this.height && (this.game.turn == this.game.myPiece) && !this.clicked) {
                 this.clicked = true;
-                this.game.socket.emit('next turn', this.cellIndex); 
                 
-                this.game.socket.emit('save game', this.game.cells, this.game.restarting, this.game.playersRestarting, this.game.turn);
+                this.game.socket.emit('next turn', this.cellIndex); 
                 
             }
         } 
